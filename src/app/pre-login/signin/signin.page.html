@@ -1,0 +1,50 @@
+<ion-content>
+  <div class="login-screen ion-margin-top ion-padding-top">
+    <div class="back-btn">
+      <ion-button fill="clear" class="ion-no-padding">
+        <ion-icon name="chevron-back-outline" color="dark"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="main-content">
+      <ion-label class="head">Enter Your Login Password</ion-label>
+      <ion-label class="sub-head">Your password keeps your account secure - enter to continue</ion-label>
+      <div class="password-content-login">
+        <div class="io-flex">
+          <div class="otp-input"></div>
+          <div class="otp-container">
+            <div class="input-list">
+              <ion-input *ngFor="let digit of otpDigits; let i = index" [value]="digit"
+                [type]="viewPasswordLogin ? 'text' : 'password'" readonly [class.focused]="selectedIndex === i">
+              </ion-input>
+            </div>
+          </div>
+          <!-- <div class="otp-btn">
+            <ion-button size="small" fill="outline" color="primary" (click)="changeTypeLogin()">
+              @if(viewPasswordLogin){
+              <ion-icon name="eye-outline"></ion-icon>
+              }@else{
+              <ion-icon name="eye-off-outline"></ion-icon>
+              }
+            </ion-button>
+          </div> -->
+        </div>
+
+        <div>
+          <div class="get-started">
+            <ion-button expand="full" color="primary" class="btns" shape="round" (click)="onGetStarted()">
+              Get Started
+            </ion-button>
+          </div>
+        </div>
+
+        <div class="forgot-password">
+          <ion-button fill="clear" class="ion-no-padding" (click)="onForgot()">
+           Did not remember it?<span class="span-btn">Click Here</span> 
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<app-virtual-numeric-keyboard (keyPress)="handleKeyPress($event)">
+</app-virtual-numeric-keyboard>

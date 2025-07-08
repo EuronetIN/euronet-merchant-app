@@ -1,0 +1,13 @@
+{
+  "name": "mrchnt-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://epayuat.eftapme.com:8801"
+    }
+  ]
+}

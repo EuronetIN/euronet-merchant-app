@@ -1,0 +1,73 @@
+<ion-content class="ion-no-padding ion-no-margin"
+  style="    --background: #fff url(/assets/homepage.png) no-repeat center center / cover;">
+  <ion-header [translucent]="true">
+    <ion-toolbar style="--background:  transparent;">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="3">
+
+          </ion-col>
+
+          <ion-col size="9">
+            <ion-title size="large" style="margin-right: 35%; color: white;"><ion-title>{{'Sign Up'|
+                translate}}</ion-title></ion-title>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="content-wraper ion-margin">
+    <form [formGroup]="requiredForm">
+      <div style="height: 40px;"></div>
+      <ion-card *ngIf="(!isOtpSend)">
+        <div class="box-wrapper" style="background-color: transparent;  ">
+          <div class="heading">
+            <h3 style="color: white;font-weight: bold;">Please enter mobile number to proceed.</h3>
+            <p style="color: white;">Enter the mobile number linked with your Bank Account. An SMS will be triggered
+              from the number to
+              verify your bank account.</p>
+          </div>
+
+          <div>
+            <div class="sim-list" style="border-radius: 8px;margin: -3px; background-color: white;margin-top: 40px; ">
+              <ion-input style="--highlight-color: none; --padding-start: 12px; border: none;" class="mob-number"
+                inputmode="numeric" type="numeric" placeholder="Enter Mobile Number" [(ngModel)]="myNumber"
+                maxlength="10" id="mobile" name="mobile" formControlName="mobile" (ionChange)="checkSeqPatteren()"
+                (ionInput)="chnagedInput()" (input)="handleInputNumber($event)" [value]="modifiedValue"
+                (keypress)="numberOnlyValidation($event)"></ion-input>
+            </div>
+          </div>
+          <div style="height: 20px;"></div>
+        </div>
+      </ion-card>
+
+
+      <ion-card *ngIf="(isOtpSend)">
+        <div class="box-wrapper">
+          <div class="input-wrapper">
+            <h3 style="color: white;">One time password has been sent to your mobile number registered with the bank.
+            </h3>
+            <ion-input style="--highlight-color: none; background-color: white; border-radius: 10px;min-height: 45px;"
+              class="data-input" type="numeric" inputmode="numeric" [(ngModel)]="otp" text-right id="input"
+              maxlength="6" (input)="handleInputOtp($event)" placeholder="Enter OTP here" id="otp" name="otp"
+              formControlName="otp" (ionInput)="chnagedOtp()" (keypress)="numberOnlyValidation($event)"></ion-input>
+            <p style="text-align: center; color: white;">Otp read timeout {{counter}} sec.</p>
+          </div>
+
+        </div>
+      </ion-card>
+    </form>
+  </div>
+  <ion-footer class="ion-padding" style="background: transparent">
+    <div class="button-wrapper" style="text-align:center ;background-color: transparent; ">
+
+      <ion-button [class.button-disabled]="isMobileValid"
+        style="--background: green; width: 50%; height: 50px; box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white; color: white;border-radius: 5px;"
+        [disabled]="isMobileValid" (click)="onClick()">
+        Proceed
+      </ion-button>
+    </div>
+
+  </ion-footer>
+</ion-content>

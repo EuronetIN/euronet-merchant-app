@@ -1,0 +1,83 @@
+.logo-div-background {
+  height: 35%;
+  width: 100%;
+  background-color: transparent;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.login-img-box {
+  background-color: transparent;
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-img-top {
+  height: 100px;
+  width: 100px;
+  background-color: transparent
+}
+
+.div-box-img-text {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.page-background {
+  height: 100%;
+  width: 100%;
+  background-image: url('/assets/splash02.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+}
+
+.div-box-card {
+  height: 220px;
+  width: 100%;
+}
+
+.welcome-div-bg {
+  height: 150px;
+  width: 100%;
+}
+
+.welcome-text-label {
+  font-size: 16;
+  font-weight: normal;
+  color: white;
+  align-items: center;
+  display: block;
+  justify-content: center;
+}
+
+.welcome-text {
+  font-size: 16;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.div-bottom-btn {
+  position: absolute;
+  margin-bottom: 40px;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  .primary-button-new {
+    height: 55px;
+    --background: linear-gradient(269deg, #1166bf 0%, #23388e 100%);
+    padding: 5px;
+    text-transform: none;
+    color: var(--text-button-primary-button-text);
+  }
+
+}
