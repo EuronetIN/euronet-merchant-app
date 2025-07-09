@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">mrchnt-app</string>
+    <string name="title_activity_main">mrchnt-app</string>
+    <string name="package_name">io.ionic.starter</string>
+    <string name="custom_url_scheme">io.ionic.starter</string>
+  <string name="CurrentCountry">IT</string>
+  <string name="CurrentEnvironment">UAT</string>
+  <string name="timeoutCode">1</string>
+  <string name="timeOutMsg">Connection time out.</string>
+  <string name="conFailCode">2</string>
+  <string
+    name="conFailMsg"
+    >Could not connect to the server, please try after some time</string>
+  <string name="networkFailCode">3</string>
+  <string
+    name="networkFailMsg"
+    >No network is available, please check your network settings</string>
+  <string name="responseNullCode">4</string>
+  <string name="responseNullMsg">received null response from the server</string>
+  <string name="urlKeyNullCode">5</string>
+  <string name="urlNullMsg">received null url key</string>
+  <string name="invalidActionCode">6</string>
+  <string name="invalidActionMsg">Invalid action received</string>
+  <string name="invalidCertCode">7</string>
+  <string name="invalidCertMsg">server is not trusted</string>
+  <string name="UnknownHostExceptionCode">8</string>
+  <string name="UnknownHostExceptionMsg">Unable to resolve host</string>
+  <string name="unauthorized_errormsg">Authorization Required</string>
+  <string
+    name="rooted_error"
+    >This application cannot be executed on a jailbreaked/rooted device.</string>
+  <string
+    name="permission_manually"
+    >AU Finance needs permission to access camera to scan the QR code. kindly turn on the camera permission.</string>
+  <string name="go_to_setting">Go To Setting</string>
+  <string
+    name="invalid_qr_text"
+    >Looks like you have scanned a non-UPI QR code. Please scan a UPI QR code and try again.</string>
+  <string name="scan_again_text">Scan Again</string>
+  <string name="invalid_signature">Invalid Signature.</string>
+</resources>

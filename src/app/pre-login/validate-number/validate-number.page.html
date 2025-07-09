@@ -1,0 +1,50 @@
+<ion-content>
+  <div class="login-screen ion-margin-top ion-padding-top">
+    <div class="back-btn">
+      <ion-button (click)="onBack()" fill="clear" class="ion-no-padding">
+        <ion-icon name="chevron-back-outline" color="dark"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="main-content">
+      <div class="io-signup-number ion-padding-bottom">
+        <ion-label class="head">Verify your mobile number</ion-label>
+        <ion-label class="sub-head ion-padding-top ion-padding-bottom"
+          >Enter Your Mobile Number: <span>XXXXXXXXXX</span></ion-label
+        >
+      </div>
+      <ng-container *ngIf="numberForm">
+        <form [formGroup]="numberForm">
+          <ion-item lines="none" class="form-control input-label">
+            <ion-input
+              inputmode="numeric"
+              required
+              formControlName="number"
+              type="text"
+              fill="clear"
+              minlength="10"
+              maxlength="10"
+              placeholder="Enter Moble Number"
+            ></ion-input>
+          </ion-item>
+        </form>
+      </ng-container>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar mode="md">
+    <div class="ion-padding-horizontal">
+      <ion-button
+        (click)="validateNumber()"
+        expand="full"
+        color="primary"
+        shape="round"
+        [disabled]="numberForm.invalid"
+        mode="ios"
+      >
+        Proceed
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
