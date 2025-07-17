@@ -1,0 +1,32 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-title> Select Date </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="ion-text-center" style="margin-left: 5px" lines="none">
+    <ion-datetime
+      display-format="MM/DD/YYYY"
+      [(ngModel)]="selectedDate"
+      picker-format="MM/DD/YYYY"
+      [showDefaultButtons]="false"
+      presentation="date"
+      [preferWheel]="true"
+      [min]="minDate"
+      [max]="maxDate"
+    >
+    </ion-datetime>
+  </ion-item>
+
+  <ion-button
+    expand="block"
+    style="margin: 20px !important"
+    (click)="confirmDate()"
+    color="secondary"
+    >Confirm Date</ion-button
+  >
+</ion-content>

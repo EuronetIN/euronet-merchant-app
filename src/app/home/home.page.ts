@@ -8,6 +8,7 @@ import {
 } from '@ionic/angular/standalone';
 import { IonicModule, NavController } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'app-home',
@@ -18,10 +19,11 @@ import { TranslateModule } from '@ngx-translate/core';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomePage {
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController, private global: GlobalService) {}
 
   onNext() {
     console.log('lets start');
     this.navCtrl.navigateForward(['/signin']);
+    // this.global.setRoot('register');
   }
 }

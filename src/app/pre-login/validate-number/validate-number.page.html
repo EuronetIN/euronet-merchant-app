@@ -7,32 +7,104 @@
     </div>
 
     <div class="main-content">
-      <div class="io-signup-number ion-padding-bottom">
-        <ion-label class="head">Verify your mobile number</ion-label>
-        <ion-label class="sub-head ion-padding-top ion-padding-bottom"
-          >Enter Your Mobile Number: <span>XXXXXXXXXX</span></ion-label
-        >
+      <div *ngIf="isOtpSend==false">
+        <div class="io-signup-number ion-padding-bottom">
+          <ion-label class="head"
+            >Please Enter mobile number to proceed.</ion-label
+          >
+          <ion-label class="sub-head ion-padding-top ion-padding-bottom"
+            >Enter the mobile number linked with your bank Account. An SMS will
+            be triggered from the number to verify your bank account.</ion-label
+          >
+        </div>
+        <ng-container *ngIf="numberForm">
+          <form [formGroup]="numberForm">
+            <ion-item lines="none" class="form-control input-label">
+              <ion-input
+                inputmode="numeric"
+                required
+                formControlName="number"
+                type="text"
+                fill="clear"
+                minlength="10"
+                maxlength="10"
+                placeholder="Enter Moble Number"
+              ></ion-input>
+            </ion-item>
+          </form>
+        </ng-container>
       </div>
-      <ng-container *ngIf="numberForm">
-        <form [formGroup]="numberForm">
-          <ion-item lines="none" class="form-control input-label">
-            <ion-input
-              inputmode="numeric"
-              required
-              formControlName="number"
-              type="text"
-              fill="clear"
-              minlength="10"
-              maxlength="10"
-              placeholder="Enter Moble Number"
-            ></ion-input>
-          </ion-item>
-        </form>
-      </ng-container>
+      <div *ngIf="isOtpSend==true">
+        <div class="io-signup-number ion-padding-bottom">
+          <ion-label class="otp-head"
+            >OTP has been sent to your mobile number register with the
+            bank</ion-label
+          >
+          <!-- <ion-label class="sub-head ion-padding-top ion-padding-bottom"
+            >Enter the mobile number linked with your bank Account. An SMS will
+            be triggered from the number to verify your bank account.</ion-label
+          > -->
+        </div>
+        <ng-container>
+          <form [formGroup]="otpForm">
+            <ion-item lines="none" class="form-control input-label">
+              <ion-input
+                inputmode="numeric"
+                required
+                formControlName="otpNumber"
+                type="text"
+                fill="clear"
+                minlength="10"
+                maxlength="10"
+                placeholder="Enter OTP Here"
+              ></ion-input>
+            </ion-item>
+            <p style="text-align: center">OTP read timeout sec.</p>
+          </form>
+        </ng-container>
+      </div>
     </div>
   </div>
+  <!-- <ion-card *ngIf="isOtpSend==true" class="verify-otp">
+    <div class="box-wrapper">
+      <div class="input-wrapper">
+        <h3 style="color: rgb(68, 62, 62)">Please verify your OTP</h3>
+        <ion-input
+          style="
+            --highlight-color: none;
+            background-color: white;
+            border-radius: 10px;
+            min-height: 45px;
+          "
+          class="data-input"
+          type="numeric"
+          inputmode="numeric"
+          [(ngModel)]="otp"
+          text-right
+          id="input"
+          maxlength="6"
+          placeholder="Enter OTP here"
+          id="otp"
+          name="otp"
+        ></ion-input>
+        <ion-button
+          style="
+            --background: green;
+            width: 50%;
+            height: 50px;
+            box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white;
+            color: white;
+            border-radius: 5px;
+          "
+          (click)="verifyOtp()"
+        >
+          Proceed
+        </ion-button>
+      </div>
+    </div>
+  </ion-card> -->
 </ion-content>
-<ion-footer class="ion-no-border">
+<ion-footer class="ion-no-border" *ngIf="isOtpSend==false">
   <ion-toolbar mode="md">
     <div class="ion-padding-horizontal">
       <ion-button
@@ -40,7 +112,21 @@
         expand="full"
         color="primary"
         shape="round"
-        [disabled]="numberForm.invalid"
+        mode="ios"
+      >
+        Proceed
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer class="ion-no-border" *ngIf="isOtpSend==true">
+  <ion-toolbar mode="md">
+    <div class="ion-padding-horizontal">
+      <ion-button
+        (click)="validateOtp()"
+        expand="full"
+        color="primary"
+        shape="round"
         mode="ios"
       >
         Proceed

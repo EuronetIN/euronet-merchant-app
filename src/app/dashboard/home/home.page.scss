@@ -1,0 +1,318 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+ion-header {
+  position: relative;
+  z-index: -1;
+
+  ion-toolbar {
+    --background: #243e8b;
+
+    .user-details {
+      background-color: #243e8b;
+      // background-image: url('../../../../../assets/images/bg-header.svg');
+      padding: 1.2rem;
+
+      ion-row {
+        align-items: center;
+
+        ion-img {
+          width: 55px;
+          height: 55px;
+        }
+
+        .username {
+          font-size: 1rem;
+          font-weight: 700;
+          color: var(--ion-color-white);
+        }
+
+        .user-id,
+        .user-number {
+          ion-label {
+            font-size: 0.7rem;
+            color: #cbd8ff;
+            font-weight: 600;
+
+            span {
+              color: var(--ion-color-white);
+            }
+          }
+        }
+
+        ion-icon {
+          color: var(--ion-color-white);
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+  }
+}
+
+.main-content {
+  background-color: var(--ion-color-white-shade);
+
+  //Upi tranfer Feature
+  .payment-feature {
+    margin: 1.2rem;
+    margin-bottom: 0px;
+    background-color: var(--ion-color-white);
+    width: 90vw;
+    // margin: 5px auto;
+    box-shadow: 0 2px 8px 0px #cccccc85;
+    border-radius: 25px;
+
+    swiper-container > swiper-slide {
+      padding: 1rem 0;
+
+      ion-row {
+        padding: 0px 15px 15px;
+
+        ion-col {
+          text-align: center;
+
+          ion-img {
+            background: #eeeeee;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            padding: 13px;
+            margin: auto;
+          }
+
+          ion-label {
+            padding-top: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #323232;
+          }
+        }
+      }
+    }
+
+    .upi-lite {
+      text-align: start;
+      padding: 1.2rem;
+      padding-top: 0px;
+
+      ion-card {
+        border-radius: 20px;
+        background-color: #e6eef7;
+        color: var(--ion-color-primary);
+        margin-top: 5px;
+        padding: 0.7rem;
+        font-size: 0.8rem;
+        box-shadow: none;
+
+        ion-icon {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #323232;
+    padding: 2rem 1.2rem 1.2rem;
+  }
+
+  .pending-request {
+    padding-left: 1.2rem;
+
+    swiper-container {
+      background-color: #fcfcfc;
+
+      ion-card {
+        padding: 1rem;
+        border: 1px solid #b8b8b8;
+        border-radius: 25px;
+
+        ion-card-header > ion-row > ion-col {
+          ion-img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+
+        ion-card-header > ion-row > ion-col[size="7"] {
+          padding-left: 0.8rem;
+          .user-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #252525;
+          }
+
+          .upi-id {
+            font-size: 0.7rem;
+          }
+        }
+
+        ion-card-content > ion-row > ion-col {
+          padding: 0.6rem 0rem 0rem;
+          font-weight: 600;
+
+          span {
+            color: #939393;
+          }
+
+          ion-button {
+            font-size: 0.9rem;
+          }
+
+          .reject-btn {
+            color: var(--ion-color-primary);
+          }
+        }
+
+        ion-card-header > ion-row > ion-col[size="3"] {
+          color: var(--ion-color-primary);
+          font-size: 0.9rem;
+          font-weight: 800;
+          text-align: end;
+        }
+
+        ion-card-content > ion-row > ion-col[size="4"] {
+          font-size: 0.9rem;
+        }
+
+        ion-card-content > ion-row > ion-col[size="8"] {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .view-all {
+    font-size: 0.8rem;
+    color: var(--ion-color-primary);
+  }
+
+  //favorites
+  .favorites {
+    padding: 0rem 1.2rem;
+
+    ion-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding-top: 10px;
+    }
+
+    .add-new-box {
+      width: 50px;
+      height: 50px;
+      border: 2px dashed var(--ion-color-primary);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    .add-icon {
+      font-size: 24px;
+      color: var(--ion-color-primary);
+    }
+
+    .add-label {
+      color: var(--ion-color-primary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-align: center;
+      padding-top: 10px;
+    }
+  }
+
+  //More service css
+  .more-service {
+    padding: 0rem 1.2rem;
+
+    ion-card {
+      background-color: #f7f9ff;
+      border: 1px solid #e0e1ea;
+    }
+
+    ion-card-content > ion-row > ion-col {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #373b3f;
+    }
+
+    ion-card-content > ion-row > ion-col[size="4"] {
+      height: 58px;
+      width: 60px;
+      border-radius: 7px;
+    }
+
+    .upi-circle {
+      margin-right: 10px;
+      height: 130px;
+      border-radius: 8px;
+
+      ion-card-header {
+        ion-card-title {
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: #373b3f;
+          padding: 15px 15px 0px;
+
+          ion-img {
+            width: 45px;
+            height: 25px;
+          }
+        }
+      }
+
+      ion-card-content {
+        padding: 0px;
+        float: right;
+      }
+    }
+
+    .upi-mandate {
+      margin-bottom: 10px;
+
+      ion-card-content > ion-row > ion-col[size="4"] {
+        background-color: rgba(210, 251, 212, 1);
+      }
+    }
+
+    .upi-emi {
+      ion-card-content > ion-row > ion-col[size="4"] {
+        background-color: rgba(255, 59, 141, 0.15);
+      }
+    }
+  }
+  .adver {
+    padding: 0rem 1.2rem;
+    img {
+      width: 100%;
+    }
+
+    padding-bottom: 8rem;
+  }
+}
+
+.initials-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #3f51b5;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 18px;
+}

@@ -2,12 +2,12 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'home',
+    path: 'home-page',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'home-page',
     pathMatch: 'full',
   },
   {
@@ -32,5 +32,29 @@ export const routes: Routes = [
       import('./pre-login/validate-number/validate-number.page').then(
         (m) => m.ValidateNumberPage
       ),
+  },
+  {
+    path: 'verify-otp',
+    loadComponent: () =>
+      import('./shared/verify-otp/verify-otp.page').then(
+        (m) => m.VerifyOtpPage
+      ),
+  },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./dashboard/dashboard.page').then((m) => m.DashboardPage),
+  },
+  {
+    path: 'set-user-detail',
+    loadComponent: () =>
+      import('./pre-login/set-user-detail/set-user-detail.page').then(
+        (m) => m.SetUserDetailPage
+      ),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./pre-login/register/register.page').then((m) => m.RegisterPage),
   },
 ];

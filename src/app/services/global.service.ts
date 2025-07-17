@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
+import { NavController } from '@ionic/angular';
+import { Toast } from '@capacitor/toast';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +11,11 @@ import * as CryptoJS from 'crypto-js';
 export class GlobalService {
   baseUrl = 'https://epayuat.eftapme.com:8801/IOBMobileEnc/api/2.0';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private navCtrl: NavController,
+    private ngZone: NgZone
+  ) {}
 
   private hexToWordArray(hex: string): CryptoJS.lib.WordArray {
     return CryptoJS.enc.Hex.parse(hex);
@@ -118,4 +124,23 @@ export class GlobalService {
         });
     }
   }
+
+  //This is for page routing '
+  setRoot(page: string) {
+    this.ngZone.run(() => {
+      this.navCtrl.navigateRoot(['/' + page]).catch((err) => {
+        this.showToast('Page not found: ' + page + 'error' + err);
+      });
+    });
+  }
+
+  //Showing toast message
+  showToast = async (msg: string) => {
+    msg = msg || 'Internal Server Error';
+    await Toast.show({
+      text: msg,
+      duration: 'long',
+      position: 'top',
+    });
+  };
 }

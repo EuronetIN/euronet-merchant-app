@@ -1,9 +1,9 @@
 <ion-content>
   <div class="login-screen ion-margin-top ion-padding-top">
     <div class="back-btn">
-      <ion-button fill="clear" class="ion-no-padding">
+      <!-- <ion-button fill="clear" class="ion-no-padding">
         <ion-icon name="chevron-back-outline"></ion-icon>
-      </ion-button>
+      </ion-button> -->
     </div>
     <div class="main-content">
       <ion-label class="head">Enter Your Login Password</ion-label>
@@ -58,6 +58,10 @@
       </div>
     </div>
   </div>
+  <ion-footer>
+    <ion-toolbar mode="md">
+      <app-virtual-numeric-keyboard (keyPress)="handleKeyPress($event)">
+      </app-virtual-numeric-keyboard>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>
-<app-virtual-numeric-keyboard (keyPress)="handleKeyPress($event)">
-</app-virtual-numeric-keyboard>

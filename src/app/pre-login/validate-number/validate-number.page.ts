@@ -13,9 +13,11 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
+  NavController,
 } from '@ionic/angular/standalone';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
+import { VerifyOtpPage } from 'src/app/shared/verify-otp/verify-otp.page';
 
 @Component({
   selector: 'app-validate-number',
@@ -33,7 +35,15 @@ import { addIcons } from 'ionicons';
 export class ValidateNumberPage implements OnInit {
   account: any;
   numberForm!: FormGroup;
-  constructor(public formBuilder: FormBuilder) {
+  otpForm!: FormGroup;
+  otpNumber: any;
+  otp: any;
+  isOtpSend: boolean = false;
+  constructor(
+    public formBuilder: FormBuilder,
+    private modalCtrl: ModalController,
+    private navCtrl: NavController
+  ) {
     addIcons({
       chevronBackOutline,
     });
@@ -48,11 +58,43 @@ export class ValidateNumberPage implements OnInit {
         ],
       ],
     });
+
+    this.otpForm = this.formBuilder.group({
+      otpNumber: [
+        '',
+        [Validators.required, Validators.minLength(6), Validators.maxLength(6)],
+      ],
+    });
   }
 
   ngOnInit() {}
 
   onBack() {}
 
-  validateNumber() {}
+  async validateNumber() {
+    this.isOtpSend = true;
+    //   const modal = await this.modalCtrl.create({
+    //     component: VerifyOtpPage,
+    //     cssClass: 'centered-modal',
+    //     backdropDismiss: false,
+    //     backdropBreakpoint: 0.1,
+    //     showBackdrop: true,
+    //     breakpoints: [0.5],
+    //     initialBreakpoint: 0.4,
+    //     handle: false,
+    //   });
+    //   await modal.present();
+    //   const { data } = await modal.onDidDismiss();
+    //   if (data === true) {
+    //     console.log('otpData :' + data);
+    //   }
+  }
+
+  verifyOtp() {
+    console.log('verify otp');
+  }
+  validateOtp() {
+    // this.navCtrl.navigateForward(['/dashboard']);
+    this.navCtrl.navigateForward(['/set-user-detail']);
+  }
 }

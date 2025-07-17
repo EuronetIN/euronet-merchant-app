@@ -1,0 +1,290 @@
+<ion-header class="ion-no-border">
+  <div>
+    <app-toolbar title="Please Enter Your Personal Details"></app-toolbar>
+  </div>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="form-wrapper">
+    <form [formGroup]="detailForm">
+      <div class="form-group">
+        <ion-label class="label">Enter First Name</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="First Name"
+          formControlName="firstName"
+          type="text"
+          errorText="Invalid First Name"
+          autofocus="true"
+          maxlength="20"
+        >
+        </ion-input>
+        <!-- (ionBlur)="verifyVpa($event.target.value)" -->
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Enter Last Name</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="Last Name"
+          type="text"
+          formControlName="lastName"
+          errorText="Invalid Last Name"
+          maxlength="20"
+        >
+        </ion-input>
+        <!-- [value]="lastName" -->
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Enter Merchant Name</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="Merchant Name"
+          type="text"
+          formControlName="merchantName"
+          errorText="Invalid Merchant Name"
+          maxlength="20"
+        >
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Enter Email ID</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="Email ID (optional)"
+          type="email"
+          formControlName="emailId"
+          errortext="Invalid Email ID"
+        >
+        </ion-input>
+      </div>
+      <div class="form-group">
+        <ion-label class="label">Enter Mobile Number</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="Mobile Number"
+          type="tel"
+          formControlName="mobileNumber"
+          errorText="Invalid Mobile Number"
+          maxlength="10"
+        >
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Enter Latitude</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="Enter Latitute"
+          type="text"
+          formControlName="enterLatitude"
+          errorText="Invalid Latitude"
+        >
+        </ion-input>
+      </div>
+      <div class="form-group">
+        <ion-label class="label">Enter Longitude</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="Enter Longitude"
+          type="text"
+          formControlName="enterLongitude"
+          errortext="Invalid Longitude"
+        >
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Enter Merchant Address</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="Merchant Address"
+          type="text"
+          formControlName="merchantAddress"
+          errorText="Invalid Merchant Address"
+          maxlength="100"
+        >
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Enter Post Office Name</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="Post Office Name"
+          type="text"
+          formControlName="postOfficeName"
+          errorText="Invalid Post Office Name"
+          maxlength="20"
+        >
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Enter PIN Code</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="PIN Code"
+          type="tel"
+          formControlName="pinCode"
+          errorText="Invalid PIN Code"
+          maxlength="6"
+        >
+        </ion-input>
+      </div>
+      <div class="form-group">
+        <ion-label class="label">Select State</ion-label>
+        <ion-select
+          formControlName="state"
+          placeholder="Select State"
+          (ionChange)="onStateChange($event.detail.value)"
+          [interfaceOptions]="customActionSheetOptionsState"
+          errorText="Please Select valid state"
+        >
+          <ion-select-option *ngFor="let state of states" [value]="state">
+            {{ state }}
+          </ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Select District</ion-label>
+        <ion-select
+          formControlName="district"
+          placeholder="Select District"
+          [interfaceOptions]="customActionSheetOptionsDistrict"
+          errorText="Please Select valid district"
+        >
+          <ion-select-option *ngFor="let dist of districts" [value]="dist">
+            {{ dist }}
+          </ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Enter Sub-District</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="Sub-District (optional)"
+          type="text"
+          formControlName="subDistrict"
+          errorText="Invalid Sub-District"
+          maxlength="20"
+        >
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Select Merchant Service</ion-label>
+        <ion-select
+          formControlName="merchantService"
+          placeholder="Select merchant service"
+          [interfaceOptions]="customActionSheetOptionsMerchantService"
+          errorText="Invalid Merchant Service"
+        >
+          <ion-select-option *ngFor="let d of districts" [value]="d">
+            {{ d }}
+          </ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Select Merchant Type</ion-label>
+        <ion-select
+          formControlName="merchantType"
+          placeholder="Select merchant type"
+          [interfaceOptions]="customActionSheetOptionsMerchantType"
+          errorextext="Invalid Merchant Type"
+        >
+          <ion-select-option *ngFor="let d of districts" [value]="d">
+            {{ d }}
+          </ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Enter GST Number</ion-label>
+        <ion-input
+          class="ion-padding"
+          labelPlacement="stacked"
+          placeholder="GST Number (optional)"
+          type="text"
+          formControlName="gstNumber"
+          errorText="Invalid GST Number"
+        >
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Valid Up To</ion-label>
+        <ion-input
+          class="ion-padding"
+          formControlName="date"
+          (click)="openDatePicker()"
+          errorText="Invalid Date"
+          placeholder="yyyy-mm-dd"
+          autofocus=""
+        >
+          <ion-icon
+            name="calendar-outline"
+            slot="end"
+            aria-expanded="true"
+            (click)="$event.stopPropagation()"
+          >
+          </ion-icon>
+        </ion-input>
+      </div>
+
+      <!-- <div class="form-group">
+        <ion-label class="label">Amount</ion-label>
+        <ion-input
+          class="ion-padding"
+          type="tel"
+          placeholder="Enter Amount"
+          formControlName="amount"
+        >
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="label">Remark</ion-label>
+        <ion-textarea
+          type="text"
+          placeholder="Enter Remark"
+          formControlName="remark"
+        >
+        </ion-textarea>
+      </div> -->
+    </form>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar mode="md">
+    <div class="ion-padding">
+      <ion-button
+        mode="ios"
+        expand="full"
+        color="primary"
+        class="btns"
+        shape="round"
+        (click)="validateForm()"
+      >
+        Proceed
+      </ion-button>
+      <!-- [disabled]="!detailForm.valid" -->
+    </div>
+  </ion-toolbar>
+</ion-footer>
